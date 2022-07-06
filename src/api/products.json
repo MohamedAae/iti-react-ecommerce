@@ -1,0 +1,150 @@
+[
+  {
+    "id": 0,
+    "brand": "Samsung",
+    "name": "Samsung Galaxy M12 Dual Sim, 64GB, 4GB RAM, 4G LTE - Blue",
+    "categoryId": 0,
+    "thumbnail": "/images/products/samsung-galaxy-m12-140x140.png",
+    "price": 4599,
+    "discountRate": 0.25,
+    "installment": 190,
+    "minicashOffer": true,
+    "summerOffer": true
+  },
+  {
+    "id": 1,
+    "brand": "Mienta",
+    "name": "Mienta Xpress Garment Steamer, 1800 Watt, Multicolor - GS42106A",
+    "categoryId": 3,
+    "thumbnail": "/images/products/mienta-garment-steamer-140x140.png",
+    "price": 1735,
+    "discountRate": 0.05,
+    "installment": 86,
+    "minicashOffer": true,
+    "summerOffer": true
+  },
+  {
+    "id": 2,
+    "brand": "Moulinex",
+    "name": "Moulinex Masterchef Kitchen Machine, 900 Watt, Silver - QA503DB1",
+    "categoryId": 3,
+    "thumbnail": "/images/products/moulinex-double-force-food-processor-140x140.png",
+    "price": 6495,
+    "discountRate": 0.39,
+    "installment": 39,
+    "minicashOffer": true,
+    "summerOffer": true
+  },
+  {
+    "id": 3,
+    "brand": "Panasonic",
+    "name": "Panasonic Mega Cyclone Bagless Vacuum Cleaner, 1600 Watt, Blue - MC-CL571AV47",
+    "categoryId": 3,
+    "thumbnail": "/images/products/panasonic-bagless-vacuum-cleaner-140x140.png",
+    "price": 2449,
+    "discountRate": 0.18,
+    "installment": 220,
+    "minicashOffer": true,
+    "summerOffer": true
+  },
+  {
+    "id": 4,
+    "brand": "Xiaomi",
+    "name": "Xiaomi Mi Band 5 Smart Watch, Black - XMSH10HM",
+    "categoryId": 5,
+    "thumbnail": "/images/products/xiaomi-mi-band-5-black-140x140.png",
+    "price": 500,
+    "discountRate": 0.12,
+    "installment": 25,
+    "minicashOffer": true,
+    "summerOffer": true
+  },
+  {
+    "id": 5,
+    "brand": "LG",
+    "name": "LG Dual Cool Split Inverter Air Conditioner, 3 HP, Cooling Only, White - s4-w24k23ae",
+    "categoryId": 2,
+    "thumbnail": "/images/products/lg-split-ac-213-141.jpg",
+    "price": 16358,
+    "discountRate": 0.02,
+    "installment": 764,
+    "isNew": true
+  },
+  {
+    "id": 6,
+    "brand": "LG",
+    "name": "LG Dual Cool Split Inverter Air Conditioner, 3 HP, Cooling Only, White - S4-Q24K22ME",
+    "categoryId": 2,
+    "thumbnail": "/images/products/lg-split-ac-s4-213-141.jpg",
+    "price": 17330,
+    "discountRate": 0.13,
+    "installment": 857,
+    "isNew": true
+  },
+  {
+    "id": 7,
+    "brand": "Samsung",
+    "name": "Samsung Microwave Oven With Grill, 40 Litre, Silver - MG402MADXBB",
+    "categoryId": 3,
+    "thumbnail": "/images/products/samsung-microwave-oven-213-141.jpg",
+    "price": 4649,
+    "discountRate": 0.5,
+    "installment": 0,
+    "isNew": true
+  },
+  {
+    "id": 8,
+    "brand": "LG",
+    "name": "LG Dual Cool Split Inverter Air Conditioner, 2.25 HP, Cooling Only, White - S4-Q18KL2MD",
+    "categoryId": 2,
+    "thumbnail": "/images/products/lg-split-aircondition-s4-213-141.jpg",
+    "price": 15875,
+    "discountRate": 0.06,
+    "installment": 780,
+    "isNew": true
+  },
+  {
+    "id": 9,
+    "brand": "Bein",
+    "name": "Bein 4K Ultra HD Advanced Satellite Receiver, With Premium Package, 86 Channels - White",
+    "categoryId": 5,
+    "thumbnail": "/images/products/bein-4k-ultrahd-receiver-213-141.jpg",
+    "price": 4950,
+    "discountRate": 0,
+    "installment": 0,
+    "isNew": true
+  },
+  {
+    "id": 10,
+    "brand": "Fresh",
+    "name": "Fresh Dishwasher, 10 Persons, Stainless Steel - A15 - 45 - IX",
+    "categoryId": 3,
+    "thumbnail": "/images/products/fresh-dishwashe-213-141.jpg",
+    "price": 6666,
+    "discountRate": 0,
+    "installment": 312,
+    "isNew": true
+  },
+  {
+    "id": 11,
+    "brand": "Unionaire",
+    "name": "Unionaire Purify Split Air Conditioner, 3 HP, Cooling Only - PU024CR",
+    "categoryId": 2,
+    "thumbnail": "/images/products/unionaire-air-conditioner-213-141.jpg",
+    "price": 11399,
+    "discountRate": 0,
+    "installment": 532,
+    "isNew": true
+  },
+  {
+    "id": 12,
+    "brand": "Dell",
+    "name": "Dell Vostro 3510 Laptop, Intel Core i7-1165G7, 1TB HDD Plus 256GB SSD, 16GB RAM, NVIDIA GeForce MX350 2GB, Ubuntu - Black",
+    "categoryId": 4,
+    "thumbnail": "/images/products/dell-3510-i7-1165g7-213-141.jpg",
+    "price": 15879,
+    "discountRate": 0.09,
+    "installment": 741,
+    "isNew": true
+  }
+]

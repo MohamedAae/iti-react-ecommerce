@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "title": "Mobile & Tablets",
+    "slug": "mobile-tablets",
+    "thumbnail": "/images/categories/mobiles-tablet.png"
+  },
+  {
+    "id": 1,
+    "title": "TV & Entertainment",
+    "slug": "tv-entertainment",
+    "thumbnail": "/images/categories/tvs.png"
+  },
+  {
+    "id": 2,
+    "title": "Large Home Appliances",
+    "slug": "large-home-appliance",
+    "thumbnail": "/images/categories/lha.png"
+  },
+  {
+    "id": 3,
+    "title": "Small Home Appliances",
+    "slug": "small-home-appliance",
+    "thumbnail": "/images/categories/sha.png"
+  },
+  {
+    "id": 4,
+    "title": "Laptops & PCs",
+    "slug": "laptops-pcs",
+    "thumbnail": "/images/categories/laptops.png"
+  },
+  {
+    "id": 5,
+    "title": "Electronics",
+    "slug": "electronics",
+    "thumbnail": "/images/categories/electronics.png"
+  },
+  {
+    "id": 6,
+    "title": "Personal Care",
+    "slug": "personal-care",
+    "thumbnail": "/images/categories/beauty-fitness.png"
+  },
+  {
+    "id": 7,
+    "title": "Gaming",
+    "slug": "gaming",
+    "thumbnail": "/images/categories/gaming.png"
+  }
+]

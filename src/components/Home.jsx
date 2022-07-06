@@ -1,16 +1,35 @@
-import {useState} from 'react';
+import Slider from "./slider/Slider";
+import CategoriesSlider from "./CategoriesSlider/CategoriesSlider";
+import Offers from "./Offers/Offers";
+import ProductsSlider from "./ProductsSlider/ProductsSlider";
 
+const products = require("../api/products.json");
 const Home = () => {
-  const [change, setChange] = useState(true);
   return (
-    <div>
-      <button onClick={() => setChange(!change)}>
-        Click Here!
-      </button>
-      {change ? <h1>Welcome to GeeksforGeeks</h1> :
-        <h1>A Computer Science Portal for Geeks</h1>}
+    <div className={"container mx-auto mt-4 font-sans"}>
+      <Slider />
+      <CategoriesSlider />
+      <ProductsSlider
+        title="New Arrivals"
+        products={products}
+        filter="isNew"
+        slidesPerView="5"
+      />
+      <Offers
+        title="Summer Offers"
+        products={products}
+        background="summer"
+        filter="summerOffer"
+      />
+      <Offers
+        title="Minicash Offers"
+        products={products}
+        background="minicash"
+        filter="minicashOffer"
+      />
+      <CategoriesSlider />
     </div>
   );
-}
+};
 
 export default Home;
