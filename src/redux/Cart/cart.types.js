@@ -1,2 +1,2 @@
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+export const ADDTOCART = "addToCart";
+export const REMOVEFROMCART = "removeFromCart";

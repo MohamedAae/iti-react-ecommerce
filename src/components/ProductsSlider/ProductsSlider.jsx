@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
@@ -15,17 +16,31 @@ const ProductsSlider = (props) => {
     navigationEnabled = props.navigation ? props.navigation : true;
 
   return (
-    <section className={"mt-5 px-10 py-10 bg-white shadow-md rounded-md"}>
+    <section className={"mt-5 py-10 bg-white rounded-md"}>
       <h1
         className={
-          "mb-7 col-span-full text-lg font-medium text-black capitalize"
+          "mb-7 col-span-full text-lg font-medium text-violet-900 capitalize"
         }
       >
         {title}
       </h1>
       <Swiper
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+          },
+          640: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: slidesPerView < 6 ? slidesPerView : 6,
+          },
+          1024: {
+            slidesPerView: slidesPerView,
+          },
+        }}
         onSwiper={setSwiperRef}
-        slidesPerView={slidesPerView}
+        slidesPerView={1}
         navigation={navigationEnabled}
         modules={[Navigation]}
         className={"mySwiper mt-2"}
@@ -52,11 +67,14 @@ const ProductsSlider = (props) => {
                   />
                 </a>
                 <div className={"px-2 flex flex-col gap-y-5"}>
-                  <a href="#" className={"line-clamp-2"}>
+                  <Link
+                    to={"/product/" + product.slug}
+                    className={"line-clamp-2"}
+                  >
                     <h3 className={"text-gray-900"}>
                       {product.name ? product.name : `Product Title`}
                     </h3>
-                  </a>
+                  </Link>
                   <div>
                     <span className="font-bold text-gray-900">
                       {product.discountRate

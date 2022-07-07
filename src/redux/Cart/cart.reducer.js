@@ -1,21 +1,29 @@
-import { INCREMENT, DECREMENT } from "./cart.types";
+import { ADDTOCART, REMOVEFROMCART } from "./cart.types";
 
-const countState = {
-  count: 0,
+const initState = {
+  cartItems: [],
+  cartTotal: 0,
+  cartPayment: 0
 };
 
-const reducer = (state = countState, action) => {
+const reducer = (state = initState, action) => {
   switch (action.type) {
-    case INCREMENT:
+    case ADDTOCART:
       return {
         ...state,
-        count: state.count + 1,
+        cartItems: [...state.cartItems, action.product],
+        cartTotal: state.cartTotal + 1,
+        cartPayment: state.cartPayment + action.product.price,
       };
 
-    case DECREMENT:
+    case REMOVEFROMCART:
       return {
         ...state,
-        count: state.count - 1,
+        cartItems: state.cartItems.filter((product) => {
+          return product.id !== action.id;
+        }),
+        cartTotal: state.cartTotal - 1,
+        cartPayment: state.cartPayment - action.price,
       };
 
     default:

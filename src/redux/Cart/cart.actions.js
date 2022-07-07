@@ -1,13 +1,16 @@
-import { INCREMENT, DECREMENT } from "./cart.types";
+import { ADDTOCART, REMOVEFROMCART } from "./cart.types";
 
-export const increaseCounter = () => {
+export const addToCart = (product) => {
   return {
-    type: INCREMENT,
+    type: ADDTOCART,
+    product: product,
   };
 };
 
-export const decreaseCounter = () => {
+export const removeFromCart = (id, price) => {
   return {
-    type: DECREMENT,
+    type: REMOVEFROMCART,
+    id: id,
+    price: price
   };
 };

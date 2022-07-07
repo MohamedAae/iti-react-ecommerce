@@ -11,26 +11,33 @@ const Offers = (props) => {
   return (
     <div
       className={
-        "mt-5 py-10 flex flex-row bg-no-repeat bg-cover bg-left-top" +
+        "mt-5 py-10 flex flex-row flex-wrap bg-no-repeat bg-cover bg-left-top gap-y-5" +
         ` ${background}`
       }
     >
-      <CallToAction width="w-1/4" title={title} />
-      <div className={"w-3/4 px-10 flex flex-row justify-between gap-x-4"}>
+      <CallToAction width="w-full md:w-1/5" title={title} />
+      <div
+        className={
+          "w-full md:w-4/5 px-10 flex flex-row flex-wrap lg:flex-nowrap justify-center md:justify-between  gap-x-4 gap-y-4"
+        }
+      >
         {products &&
-          products.filter(product => filter ? product[filter] : true).map((product) => {
-            return (
-              <Card
-                name={product.name}
-                thumbnail={product.thumbnail}
-                price={product.price}
-                priceAfterDiscount={
-                  product.price - product.price * product.discountRate
-                }
-                installment={product.installment}
-              />
-            );
-          })}
+          products
+            .filter((product) => (filter ? product[filter] : true))
+            .map((product) => {
+              return (
+                <Card
+                  name={product.name}
+                  thumbnail={product.thumbnail}
+                  price={product.price}
+                  priceAfterDiscount={
+                    product.price - product.price * product.discountRate
+                  }
+                  installment={product.installment}
+                  slug={'/product/' + product.slug}
+                />
+              );
+            })}
       </div>
     </div>
   );

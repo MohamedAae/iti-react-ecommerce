@@ -1,14 +1,20 @@
-import Slider from "./slider/Slider";
-import CategoriesSlider from "./CategoriesSlider/CategoriesSlider";
+import Slider from "./Slider/Slider";
+import ThumbsSluder from "./ThumbsSlider/ThumbsSlider";
 import Offers from "./Offers/Offers";
 import ProductsSlider from "./ProductsSlider/ProductsSlider";
 
 const products = require("../api/products.json");
 const Home = () => {
   return (
-    <div className={"container mx-auto mt-4 font-sans"}>
+    <div className={"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 font-sans"}>
       <Slider />
-      <CategoriesSlider />
+      <Offers
+        title="Summer Offers"
+        products={products}
+        background="summer"
+        filter="summerOffer"
+      />
+      <ThumbsSluder />
       <ProductsSlider
         title="New Arrivals"
         products={products}
@@ -16,18 +22,11 @@ const Home = () => {
         slidesPerView="5"
       />
       <Offers
-        title="Summer Offers"
-        products={products}
-        background="summer"
-        filter="summerOffer"
-      />
-      <Offers
         title="Minicash Offers"
         products={products}
         background="minicash"
         filter="minicashOffer"
       />
-      <CategoriesSlider />
     </div>
   );
 };

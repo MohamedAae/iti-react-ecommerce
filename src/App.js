@@ -1,32 +1,44 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
+import ScrollToTop from "./components/Wrappers/ScrollToTop";
 import Home from "./components/Home";
 import Category from "./components/Category";
 import Product from "./components/Product";
-import Cart from "./components/Cart";
 import Account from "./components/Account";
 
 import Header from "./components/Header/Header";
+import ThumbsSlider from "./components/ThumbsSlider/ThumbsSlider";
 import Footer from "./components/Footer/Footer";
 
 import "./App.css";
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="category">
-          <Route path=":slug" element={<Category />}></Route>
-        </Route>
-        <Route path="product" element={<Product />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
-        <Route path="account" element={<Account />}></Route>
-      </Routes>
-      <Footer />
+      <ScrollToTop>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="category">
+            <Route path=":slug" element={<Category />} />
+          </Route>
+          <Route path="product">
+            <Route path=":productSlug" element={<Product />} />
+          </Route>
+          <Route path="account" element={<Account />}></Route>
+        </Routes>
+        <ThumbsSlider history={true} slides={props.history} />
+        <Footer />
+      </ScrollToTop>
     </BrowserRouter>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    history: state.history.history,
+  };
+};
+
+export default connect(mapStateToProps)(App);

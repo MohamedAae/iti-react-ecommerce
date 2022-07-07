@@ -3,48 +3,92 @@
     "id": 0,
     "title": "Mobile & Tablets",
     "slug": "mobile-tablets",
-    "thumbnail": "/images/categories/mobiles-tablet.png"
+    "thumbnail": "/images/categories/mobiles-tablet.png",
+    "image": "/images/Mobiles-and-tablets.png",
+    "subCategories": [
+      { "id": 0, "title": "Mobiles", "slug": "mobiles" },
+      { "id": 1, "title": "Tablets", "slug": "tablets" }
+    ]
   },
   {
     "id": 1,
     "title": "TV & Entertainment",
     "slug": "tv-entertainment",
-    "thumbnail": "/images/categories/tvs.png"
+    "thumbnail": "/images/categories/tvs.png",
+    "image": "/images/TV-Entertainment.png",
+    "subCategories": [
+      { "id": 0, "title": "TVs", "slug": "tvs" },
+      { "id": 1, "title": "Receivers", "slug": "receivers" },
+      { "id": 2, "title": "TV Accessories", "slug": "tv-accessories" }
+    ]
   },
   {
     "id": 2,
     "title": "Large Home Appliances",
     "slug": "large-home-appliance",
-    "thumbnail": "/images/categories/lha.png"
+    "thumbnail": "/images/categories/lha.png",
+    "image": "/images/Large-home-appliance.png",
+    "subCategories": [
+      { "id": 0, "title": "Air Conditioner", "slug": "ait-conditioner" },
+      {
+        "id": 1,
+        "title": "Washing Machines & Dryers",
+        "slug": "washing-machines"
+      },
+      { "id": 2, "title": "Dishwasher", "slug": "dishwasher" },
+      { "id": 3, "title": "Cooker", "slug": "cooker" }
+    ]
   },
   {
     "id": 3,
     "title": "Small Home Appliances",
     "slug": "small-home-appliance",
-    "thumbnail": "/images/categories/sha.png"
+    "thumbnail": "/images/categories/sha.png",
+    "image": "/images/small-hope-appliances.png",
+    "subCategories": [
+      { "id": 0, "title": "Fans", "slug": "fans" },
+      { "id": 1, "title": "Air Coolers", "slug": "air-coolers" },
+      { "id": 2, "title": "Microwaves", "slug": "microwaves" },
+      { "id": 3, "title": "Handblenders", "slug": "handblenders" },
+      { "id": 4, "title": "Ovens", "slug": "ovens" },
+      { "id": 5, "title": "Irons", "slug": "irons" }
+    ]
   },
   {
     "id": 4,
     "title": "Laptops & PCs",
     "slug": "laptops-pcs",
-    "thumbnail": "/images/categories/laptops.png"
+    "thumbnail": "/images/categories/laptops.png",
+    "image": "/images/Laptops-PCs.png",
+    "subCategories": [
+      { "id": 0, "title": "Laptops", "slug": "laptops" },
+      { "id": 1, "title": "PCs", "slug": "pcs" }
+    ]
   },
   {
     "id": 5,
     "title": "Electronics",
     "slug": "electronics",
-    "thumbnail": "/images/categories/electronics.png"
+    "thumbnail": "/images/categories/electronics.png",
+    "image": "/images/electronics.png",
+    "subCategories": [
+      { "id": 0, "title": "Audio", "slug": "audio" },
+      { "id": 1, "title": "Monitors", "slug": "monitors" },
+      { "id": 2, "title": "Networking", "slug": "networking" }
+    ]
   },
   {
     "id": 6,
     "title": "Personal Care",
     "slug": "personal-care",
-    "thumbnail": "/images/categories/beauty-fitness.png"
+    "thumbnail": "/images/categories/beauty-fitness.png",
+    "image": "/images/Beauty-Fitness.png"
   },
   {
     "id": 7,
     "title": "Gaming",
     "slug": "gaming",
-    "thumbnail": "/images/categories/gaming.png"
+    "thumbnail": "/images/categories/gaming.png",
+    "image": "/images/electronics.png"
   }
 ]

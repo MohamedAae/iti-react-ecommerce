@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Rubik", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         minicash: 'url("../public/images/minicash-bg.png")',

@@ -5,7 +5,7 @@ import logo from "../../logo.png";
 
 const Header = () => {
   return (
-    <header>
+    <header className={"z-10"}>
       <TopPanel />
       <Navbar logo={logo} />
     </header>

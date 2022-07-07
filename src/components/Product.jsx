@@ -1,38 +1,71 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { increaseCounter, decreaseCounter } from "../redux/Cart/cart.actions";
-import { BadgeCheckIcon, CashIcon, RefreshIcon } from "@heroicons/react/solid";
+
+import { addToCart, removeFromCart } from "../redux/Cart/cart.actions";
+import { addToHistory } from "../redux/History/history.actions";
+import {
+  BadgeCheckIcon,
+  CashIcon,
+  RefreshIcon,
+  CheckIcon,
+} from "@heroicons/react/solid";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
-let product = require("../api/products.json")[0];
+let products = require("../api/products.json"),
+  product;
+
 const Product = (props) => {
+  useEffect(() => {
+    props.addToHistory(product);
+  }, []);
+
+  const { productSlug } = useParams(),
+    product = getProduct(productSlug),
+    inCart = checkIfAdded(props.cartItems, product.id),
+    addToCartStyle = inCart
+      ? "bg-transparent border border-green-500 text-green-700"
+      : "bg-fuchsia-900 hover:bg-fuchsia-700 text-white";
+
+  const [src, setSrc] = useState(product.thumbnail);
+
+  const preview = product.preview;
   return (
     <>
       <div
         className={
-          "container mx-auto grid gap-0 mt-5 p-5 bg-white shadow-md rounded-lg grid-cols-2 font-sans"
+          "container mx-auto grid gap-0 mt-5 p-5 bg-white rounded-lg grid-cols-2 font-sans"
         }
       >
-        <div className={"bg-grey-50 text-center flex flex-col items-center"}>
+        <div
+          className={
+            "bg-grey-50 text-center flex flex-col items-center col-start-1 col-end-3 md:col-start-auto md:col-end-auto gap-y-4"
+          }
+        >
           <div
             className={
-              "mb-5 w-full h-80 flex flex-row items-start justify-between"
+              "mb-5 w-full h-80 flex flex-col md:flex-row items-start justify-between"
             }
           >
-            <div className={"flex flex-col gap-y-2 w-1/5"}>
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/products/samsung-galaxy-m12-140x140.png"
-                }
-                className={"p-2 h-20 w-20 border rounded-md"}
-              />
+            <div
+              className={
+                "flex flex-row flex-wrap md:flex-col gap-y-2 gap-x-2 w-full md:w-1/5"
+              }
+            >
+              {preview.map((image) => {
+                let imageSrce = image;
+                return (
+                  <img
+                    src={process.env.PUBLIC_URL + imageSrce}
+                    className={"p-2 h-20 w-20 border rounded-md cursor-pointer"}
+                    onClick={(image) => setSrc(imageSrce)}
+                  />
+                );
+              })}
             </div>
             <img
-              src={
-                process.env.PUBLIC_URL +
-                "/images/products/samsung-galaxy-m12-140x140.png"
-              }
-              className={"h-80 w-4/5 object-contain"}
+              src={process.env.PUBLIC_URL + src}
+              className={"h-80 w-full md:w-4/5 object-contain mt-4 md:m-0"}
             />
           </div>
           <div
@@ -82,9 +115,14 @@ const Product = (props) => {
             </div>
           </div>
         </div>
-        <div className={"flex flex-col gap-y-5"}>
+        <div
+          className={
+            "flex flex-col gap-y-5 col-start-1 col-end-3 md:col-start-auto md:col-end-auto"
+          }
+        >
           <span>{product.brand}</span>
           <h1 className={"text-2xl font-light"}>{product.name}</h1>
+          <p className={"text-gray-400 text-sm"}>{product.description}</p>
           <div>
             <h1 className={"text-3xl font-black inline-block mr-1"}>
               {product.price}
@@ -94,7 +132,7 @@ const Product = (props) => {
           {product.installment ? (
             <button
               className={
-                "w-full flex flex-row items-center justify-start bg-transparent text-violet-800 text-center font-medium py-4 px-4 border border-slate-500 rounded-lg"
+                "w-full flex flex-row items-center justify-start bg-transparent text-violet-800 text-center font-medium py-4 px-4 border border-slate-500 rounded-lg outline-none"
               }
             >
               {product.installment} LE/mo with minicash installments
@@ -104,21 +142,37 @@ const Product = (props) => {
           )}
           <button
             className={
-              "w-full flex flex-row items-center justify-center bg-fuchsia-900 hover:bg-fuchsia-700 text-white text-center font-medium py-4 px-4 rounded-lg"
+              "w-full flex flex-row items-center justify-center text-center font-medium py-4 px-4 rounded-lg outline-none " +
+              addToCartStyle
             }
-            onClick={() => props.increaseCounter()}
+            onClick={function () {
+              if (!inCart) {
+                props.addToCart(product);
+              } else {
+                props.removeFromCart(product.id, product.price);
+              }
+            }}
           >
             <ShoppingCartIcon
               className={"h-6 text-white mr-2"}
               aria-hidden="true"
             />
-            Add to Cart
-            {props.count}
+            {inCart ? (
+              <>
+                Added to Cart
+                <CheckIcon
+                  className={"text-bold h-6 text-green-500 ml-2"}
+                  aria-hidden="true"
+                />
+              </>
+            ) : (
+              "Add to Cart"
+            )}
           </button>
           {product.installment ? (
             <button
               className={
-                "w-full flex flex-row items-center justify-center bg-slate-900 text-white text-center font-bold py-4 px-4 rounded-lg"
+                "w-full flex flex-row items-center justify-center bg-slate-900 text-white text-center font-bold py-4 px-4 rounded-lg outline-none"
               }
             >
               Buy With Installments
@@ -128,30 +182,35 @@ const Product = (props) => {
           )}
         </div>
       </div>
-      <div
-        className={
-          "container mx-auto grid gap-0 mt-5 p-5 bg-white shadow-md rounded-lg grid-cols-2"
-        }
-      ></div>
-      <div
-        className={
-          "container mx-auto grid gap-0 mt-5 p-5 bg-white shadow-md rounded-lg grid-cols-2"
-        }
-      ></div>
     </>
   );
 };
 
+const getProduct = (productSlug) => {
+  const currentProduct = products.filter(
+    (product) => product.slug === productSlug
+  );
+  return currentProduct.length === 1 ? currentProduct[0] : false;
+};
+
+const checkIfAdded = (cartItems, productId) => {
+  const currentProduct = cartItems.filter(
+    (cartProduct) => cartProduct.id === productId
+  );
+  return currentProduct.length === 1 ? true : false;
+};
+
 const mapStateToProps = (state) => {
   return {
-    count: state.cart.count,
+    cartItems: state.cart.cartItems,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increaseCounter: () => dispatch(increaseCounter()),
-    decreaseCounter: () => dispatch(decreaseCounter()),
+    addToCart: (product) => dispatch(addToCart(product)),
+    removeFromCart: (id, price) => dispatch(removeFromCart(id, price)),
+    addToHistory: (product) => dispatch(addToHistory(product)),
   };
 };
 
